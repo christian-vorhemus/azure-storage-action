@@ -17,7 +17,7 @@ class BlobStorageConnection:
         blob_client: BlobClient = self._client.get_blob_client(
             container=container_name, blob=blob_name
         )
-        success = self._delete(container_name, blob_name)
+        success_delete = self._delete(container_name, blob_name)
         with open(local_file_path, "rb+") as data:
             blob_client.upload_blob(data)
 
