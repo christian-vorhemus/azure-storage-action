@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/cbl-mariner/base/python:3
 
-WORKDIR /app
+WORKDIR /github/workspace/
 
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
