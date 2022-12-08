@@ -30,7 +30,7 @@ This simplistic action allows to upload or download blobs to the local system.
 - name: Download blob
   uses: christian-vorhemus/azure-storage-action@v1
   with:
-    action: 'download'
+    direction: 'download'
     connection_string: ${{ secrets.AZUREBLOBCONNECTIONSTRING }}
     container: 'mycontainer'
     blob_path: 'theblob.txt'

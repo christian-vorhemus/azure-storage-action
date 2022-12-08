@@ -24,9 +24,3 @@ inputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  args:
-    - ${{ inputs.direction }}
-    - ${{ inputs.connection_string }}
-    - ${{ inputs.container }}
-    - ${{ inputs.blob_path }}
-    - ${{ inputs.local_path }}
