@@ -27,11 +27,12 @@ This simplistic action allows to upload or download blobs to the local system.
 ## Example usage
 
 ```
-uses: christian-vorhemus/azure-storage-action@v1
-with:
-  action: 'download'
-  connection_string: 'DefaultEndpointsProtocol=https;AccountName=[...]'
-  container: 'mycontainer'
-  blob_path: 'theblob.txt'
-  local_path: './'
+- name: Download blob
+  uses: christian-vorhemus/azure-storage-action@v1
+  with:
+    action: 'download'
+    connection_string: ${{ secrets.AZUREBLOBCONNECTIONSTRING }}
+    container: 'mycontainer'
+    blob_path: 'theblob.txt'
+    local_path: './'
 ```
