@@ -4,7 +4,7 @@ This simplistic action allows to upload or download blobs to the local system.
 
 ## Inputs
 
-### `action`
+### `direction`
 
 **Required** Specifies if you want to 'upload' or 'download' a blob.
 
@@ -26,13 +26,28 @@ This simplistic action allows to upload or download blobs to the local system.
 
 ## Example usage
 
+Download a file `theblob.txt` from container `mycontainer` to the local directory `./build`
+
 ```
 - name: Download blob
-  uses: christian-vorhemus/azure-storage-action@v1
+  uses: christian-vorhemus/azure-storage-action@v3
   with:
     direction: 'download'
     connection_string: ${{ secrets.AZUREBLOBCONNECTIONSTRING }}
     container: 'mycontainer'
     blob_path: 'theblob.txt'
-    local_path: './'
+    local_path: './build'
+```
+
+Upload a local file `theblob.txt` to the Azure storage container `mycontainer` under folder `blobs/`:
+
+```
+- name: Upload blob
+  uses: christian-vorhemus/azure-storage-action@v3
+  with:
+    direction: 'upload'
+    connection_string: ${{ secrets.AZUREBLOBCONNECTIONSTRING }}
+    container: 'mycontainer'
+    blob_path: 'blobs/'
+    local_path: './theblob.txt'
 ```
