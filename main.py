@@ -12,7 +12,7 @@ def main(action, connection_string, container, blob_path, local_path):
 
 
 if __name__ == "__main__":
-    action = os.environ["INPUT_ACTION"]
+    action = os.environ["INPUT_DIRECTION"]
     connection_string = os.environ["INPUT_CONNECTION_STRING"]
     container = os.environ["INPUT_CONTAINER"]
     blob_path = os.environ["INPUT_BLOB_PATH"]

@@ -1,8 +1,7 @@
-# action.yml
 name: Azure Blob Storage action'
 description: "Upload or download blobs from an Azure Storage Account"
 inputs:
-  action:
+  direction:
     description: "Specifies if you want to 'upload' or 'download' a blob"
     required: true
     default: "download"
@@ -26,4 +25,8 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.action }}
+    - ${{ inputs.direction }}
+    - ${{ inputs.connection_string }}
+    - ${{ inputs.container }}
+    - ${{ inputs.blob_path }}
+    - ${{ inputs.local_path }}
