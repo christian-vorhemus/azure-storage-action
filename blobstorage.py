@@ -38,7 +38,8 @@ class BlobStorageConnection:
             container=container_name, blob=blob_name
         )
 
-        save_file_path = os.path.join(local_path, blob_name)
+        file_name = os.path.basename(blob_name)
+        save_file_path = os.path.join(local_path, file_name)
 
         with open(save_file_path, "wb+") as f:
             downloaded_file = blob_client.download_blob()
