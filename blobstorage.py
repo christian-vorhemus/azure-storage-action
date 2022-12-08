@@ -14,8 +14,10 @@ class BlobStorageConnection:
 
     def put(self, container_name, blob_name, local_file_path):
         """Stores a blob file in a local or remote storage account"""
+        file_name = os.path.basename(local_file_path)
+        full_blob_name = str(os.path.join(blob_name, file_name))
         blob_client: BlobClient = self._client.get_blob_client(
-            container=container_name, blob=blob_name
+            container=container_name, blob=full_blob_name
         )
         success_delete = self._delete(container_name, blob_name)
         with open(local_file_path, "rb+") as data:
