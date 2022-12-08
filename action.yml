@@ -1,5 +1,8 @@
 name: Azure Blob Storage action'
 description: "Upload or download blobs from an Azure Storage Account"
+branding:
+  icon: "archive"
+  color: "green"
 inputs:
   direction:
     description: "Specifies if you want to 'upload' or 'download' a blob"
