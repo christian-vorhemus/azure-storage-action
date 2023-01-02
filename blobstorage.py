@@ -19,7 +19,9 @@ class BlobStorageConnection:
         blob_client: BlobClient = self._client.get_blob_client(
             container=container_name, blob=full_blob_name
         )
+        print(f"Full blob name: {full_blob_name}")
         success_delete = self._delete(container_name, full_blob_name)
+        print(f"Success delete: {success_delete}")
         with open(local_file_path, "rb+") as data:
             blob_client.upload_blob(data)
 
